@@ -1,0 +1,19 @@
+.form input{
+    width: 100%;
+    padding:0 0 0.25rem;
+    font:inherit;    
+    margin-bottom: 10px;
+}
+.form button{
+    padding:16px 50px;
+    font-size: inherit;
+    background-color: blue;
+    color:aliceblue;
+    font-weight: bold;
+}
+.form button:hover{
+    background-color:rgb(110, 110, 221);
+}
+ul{
+    list-style: none;
+}

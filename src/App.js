@@ -1,23 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
-
+import InputElement from "./components/InputElement/InputElement";
+import './App.css'
+import { useState } from "react";
 function App() {
+  const [data,set] = useState([])
+    function addElement(value){
+        set((prev)=>{
+            //const list = [...prev]
+            if(value){
+                return [...prev,{value:value,id:Math.random().toString()}]
+            }
+            return [...prev]
+        })
+    }
+    function onDeleteItem(value){
+      set((prev)=>{
+        const updated = prev.filter((i)=>i.id !== value)
+        return updated
+      })
+    }
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <InputElement add={addElement} data={data} onDelete={onDeleteItem} />
     </div>
   );
 }
